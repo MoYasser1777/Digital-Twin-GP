@@ -1,0 +1,10 @@
+numpy
+pandas
+pygame
+carla
+pygame
+agents
+tensorflow==1.15.0
+shapely
+networkx
+openpyxl
