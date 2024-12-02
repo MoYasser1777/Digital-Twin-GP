@@ -10,7 +10,7 @@ def main():
     time_values = []
 
     # Load the vehicle data from Excel
-    vehicle_data = Vehicle("vehicle_energy_data_automatic_control.xlsx")  # Replace with the actual file name
+    vehicle_data = Vehicle("./MPC/vehicle_energy_data_automatic_control.xlsx")  # Replace with the actual file name
     controller = MPCController(parameters ,steps_ahead=10, dt=0.1)
 
     for _ in range(len(vehicle_data.data)):

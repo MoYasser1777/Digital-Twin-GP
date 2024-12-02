@@ -42,7 +42,7 @@ def calculate_forces(velocity, acceleration, parameters):
 def read_config_file():
     # Load configuration from INI file
     config = configparser.ConfigParser()
-    config.read("config.ini")
+    config.read("./MPC/config.ini")
 
     # Convert the section into a dictionary
     parameters = {key: float(value) for key, value in config["simulation_parameters"].items()}
@@ -50,7 +50,7 @@ def read_config_file():
 
 def save_graph(time_values, original_throttle_values, predicted_throttle_values, filename="throttle_comparison.png"):
     # Create the outputs folder if it doesn't exist
-    output_directory = "outputs"
+    output_directory = "./MPC/outputs"
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
         print(f"Created directory: {output_directory}")
@@ -76,7 +76,7 @@ def save_graph(time_values, original_throttle_values, predicted_throttle_values,
 
 def save_predicted_throttle_to_excel(time_values, predicted_throttle_values, filename="predicted_throttle.xlsx"):
     # Create the outputs folder if it doesn't exist
-    output_directory = "outputs"
+    output_directory = "./MPC/outputs"
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
         print(f"Created directory: {output_directory}")
