@@ -92,11 +92,12 @@ def run_sumo_and_collect_data():
                     flag = True
                     speed = round(traci.vehicle.getSpeed(VEHICLE_ID), 3)
                     acceleration = round(traci.vehicle.getAcceleration(VEHICLE_ID), 3)
-                    fuel_HBEFA= round(traci.vehicle.getFuelConsumption(VEHICLE_ID),3) * float(TIME_STEP)
+                    fuel_HBEFA= round(traci.vehicle.getFuelConsumption(VEHICLE_ID)* float(TIME_STEP),3)
 
                     power = calculate_power(speed,acceleration,mass,frontal_area)
 
-                    fuel_CMEM = calculate_fuel_rate(power)
+                    fuel_CMEM = round(calculate_fuel_rate(power),3)
+                    if(fuel_CMEM < 0): fuel_CMEM = 0
 
                     # Write the data to the CSV file
                     writer.writerow([step, speed, acceleration,fuel_HBEFA,fuel_CMEM])
